@@ -1,0 +1,22 @@
+eureka:
+  client:
+    enabled: false
+    fetch-registry: true
+    register-with-eureka: false
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 010810
+    url: 'jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf8'
+  h2:
+    console:
+      enabled: true
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  redis:
+    host: 127.0.0.1
+    port: '6379'
