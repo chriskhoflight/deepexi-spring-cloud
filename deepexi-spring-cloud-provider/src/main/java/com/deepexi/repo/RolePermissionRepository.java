@@ -15,7 +15,20 @@ public class RolePermissionRepository {
     @Autowired
     private RolePermissionMapper mapper;
 
-    public List<RolePermissionDO> selectByRole() {
-        return mapper.selectList(new QueryWrapper());
+    public List<RolePermissionDO> selectListByRoleId(String roleId) {
+        QueryWrapper<RolePermissionDO> queryWrapper = toRoleWrapper(roleId);
+        return mapper.selectList(queryWrapper);
+    }
+
+    public void deletePermission(String roleId) {
+        QueryWrapper<RolePermissionDO> queryWrapper = toRoleWrapper(roleId);
+        mapper.delete(queryWrapper);
+    }
+
+    private QueryWrapper<RolePermissionDO> toRoleWrapper(String roleId) {
+        QueryWrapper<RolePermissionDO> queryWrapper = new QueryWrapper<>();
+        queryWrapper.lambda()
+                .eq(RolePermissionDO::getRoleId,roleId);
+        return queryWrapper;
     }
 }

@@ -1,6 +1,6 @@
 spring:
   application:
-    name: deepexi-spring-cloud
+    name: zwh-rbac-test
   profiles:
     active: local
   datasource:

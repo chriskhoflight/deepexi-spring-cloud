@@ -15,7 +15,11 @@ public class RoleDO {
     @TableId(type = IdType.UUID)
     private String id;
 
+    private String code;
+
     private String name;
+
+    private Boolean global;
 
     private String description;
 

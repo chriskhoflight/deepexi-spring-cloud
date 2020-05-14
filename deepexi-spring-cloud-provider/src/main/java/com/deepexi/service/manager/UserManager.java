@@ -13,7 +13,7 @@ public class UserManager {
 
     public User current(){
 
-        return builder.buildUser(1);
+        return builder.buildUser(1L);
 }
 
 

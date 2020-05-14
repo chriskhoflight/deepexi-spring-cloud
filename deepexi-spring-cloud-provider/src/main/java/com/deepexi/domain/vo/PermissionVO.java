@@ -7,6 +7,6 @@ import lombok.Data;
 @Data
 public class PermissionVO {
 
-    private String id;
-    private PermissionCode code;
+    private String name;
+    private String code;
 }

@@ -5,7 +5,9 @@ import com.deepexi.domain.dto.UserCreateDTO;
 import com.deepexi.domain.dto.UserQueryDTO;
 import com.deepexi.domain.vo.UserVO;
 import com.deepexi.service.UserService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +19,9 @@ import java.util.List;
 @RestController
 @Payload
 @Validated
+@Api(tags = "用户管理")
+@RequestMapping("test/user")
+
 public class UserController {
     @Autowired
     private UserService userService;
