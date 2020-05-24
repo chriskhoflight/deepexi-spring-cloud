@@ -4,6 +4,7 @@ package com.deepexi.service;
 import com.deepexi.domain.dto.UserCreateDTO;
 import com.deepexi.domain.dto.UserQueryDTO;
 import com.deepexi.domain.vo.UserVO;
+import com.deepexi.service.entity.User;
 import com.deepexi.service.manager.UserManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,5 +36,13 @@ public class UserService {
 
     public List<UserVO> list(UserQueryDTO dto) {
         return new ArrayList<UserVO>();
+    }
+
+//    public User findByUserName(String username) {
+//        return new User();
+//    }
+
+    public String login(String username, String password) {
+        return "1";
     }
 }

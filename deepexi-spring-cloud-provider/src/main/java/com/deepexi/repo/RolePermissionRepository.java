@@ -31,4 +31,9 @@ public class RolePermissionRepository {
                 .eq(RolePermissionDO::getRoleId,roleId);
         return queryWrapper;
     }
+
+    public Long insert(RolePermissionDO rolePermissionDO) {
+        mapper.insert(rolePermissionDO);
+        return rolePermissionDO.getId();
+    }
 }

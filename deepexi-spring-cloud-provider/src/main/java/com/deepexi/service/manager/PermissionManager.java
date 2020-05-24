@@ -1,5 +1,6 @@
 package com.deepexi.service.manager;
 
+import com.deepexi.service.entity.Permission;
 import com.google.common.collect.Maps;
 import lombok.Data;
 import lombok.experimental.Accessors;
@@ -22,9 +23,15 @@ public class PermissionManager {
                 ));
     }
 
+    /**
+     * v1 版本 查询本地列表
+     * @return
+     */
     public List<Permission> list(){
         return new ArrayList<>(this.permissions.values());
     }
+
+
 
     public Optional<Permission> get(String code){
         return Optional.ofNullable(this.permissions.get(code));

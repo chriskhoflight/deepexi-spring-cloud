@@ -64,6 +64,18 @@ public class RoleManager {
 
     }
 
+    /**
+     * 查询用户所拥有的角色
+     * @param roleIds
+     * @return
+     */
+    public List<Role> selectListByIds(List<String> roleIds) {
+        List<RoleDO> roleDOList = roleRepository.selectListByIds(roleIds);
+        return roleDOList.stream()
+                .map(data -> builder.buildRole(data.getId()))
+                .collect(Collectors.toList());
+    }
+
 
     @Data
     public static class Create{

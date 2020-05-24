@@ -14,6 +14,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @Api(tags = "角色管理")
@@ -35,7 +36,6 @@ public class RoleController {
     @PutMapping("/{id}")
     public void update(@PathVariable("id") String id, @RequestBody @Valid RoleUpdateDTO dto){
         service.update(id,dto);
-
     }
 
     @ApiOperation("删除角色")
@@ -58,9 +58,9 @@ public class RoleController {
     }
 
     @ApiOperation("分配权限")
-    @PutMapping
-    public void assignPermissions(){
-
+    @PutMapping("/{id}/permissions")
+    public void assignPermissions(@PathVariable("id") String id, @RequestBody List<String> permissionCodes){
+        service.assignPermission(id,permissionCodes);
     }
 
 }

@@ -14,6 +14,8 @@ import com.deepexi.service.manager.UserManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 import static com.deepexi.pojo.converter.utils.ConverterUtils.convert;
 import static com.deepexi.pojo.converter.utils.ConverterUtils.convertAll;
 
@@ -48,5 +50,11 @@ public class RoleService {
         userManager.current()
                 .getRole(id)
                 .delete();
+    }
+
+    public void assignPermission(String id, List<String> permissionCodes) {
+        userManager.current()
+                .getRole(id)
+                .assignPermission(permissionCodes);
     }
 }

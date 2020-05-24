@@ -11,6 +11,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Optional;
 
 @Component
@@ -58,5 +59,11 @@ public class RoleRepository {
                 .like(StringUtils.isNotBlank(query.getName()),RoleDO::getName,query.getName())
                 .and(role -> role.eq(RoleDO::getGlobal,true));
         return wrapper;
+    }
+
+    public List<RoleDO> selectListByIds(List<String> roleIds) {
+        QueryWrapper<RoleDO> queryWrapper = new QueryWrapper<>();
+        queryWrapper.lambda().in(RoleDO::getId,roleIds);
+        return mapper.selectList(queryWrapper);
     }
 }

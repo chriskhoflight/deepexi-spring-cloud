@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
 @Data
-public class UserAndRoleDO {
+public class UserRoleDO {
 
     @TableId(type = IdType.UUID)
     private String id;
